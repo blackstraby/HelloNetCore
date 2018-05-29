@@ -1,0 +1,36 @@
+﻿@model TarefaViewModel;
+
+@{    ViewData["Title"] = "Gerenciar Lista de Tarefa";}
+
+<div class="panel panel-default tarefa-panel" >
+    <div class="panel-heading">@ViewData["Title"]</div>
+
+    <table class="table table-hover" >
+        <thead>
+            <tr>
+                <td>&#x2714;</td>
+                <td>Tarefa</td>
+                <td>Previsão</td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.TarefasItem)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="@item.Id" value="true" class="done-checkbox"
+                 </td>
+                <td>@item.Nome</td>
+                <td>@item.DataConclusao</td>
+            </tr>
+        }
+    </table>
+    <div class="panel-footer add-item-form">
+           <form>
+               <div id="add-item-error" class="text-danger" >    </div>
+               <label for="add-item-title">Incluir Nova Tarefa</label>
+               <input id="add-item-title" />
+               <button type="button" id="add-item-button">Incluir</button>
+           </form>
+    </div>
+</div>
