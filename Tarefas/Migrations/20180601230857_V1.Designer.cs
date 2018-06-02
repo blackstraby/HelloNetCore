@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using Tarefas.Data;
 
-namespace Tarefas.Data.Migrations
+namespace Tarefas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180530020115_TarefasAjustes")]
-    partial class TarefasAjustes
+    [Migration("20180601230857_V1")]
+    partial class V1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -180,7 +180,7 @@ namespace Tarefas.Data.Migrations
 
             modelBuilder.Entity("Tarefas.Models.TarefaItem", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTimeOffset?>("DataConclusao");

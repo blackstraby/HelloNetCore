@@ -7,6 +7,13 @@ using Tarefas.Models;
 namespace Tarefas.Services {
     public interface ITarefaItemService {
         Task<IEnumerable<TarefaItem>> GetItemAsync ();
+        Task<bool> AdicionarItem (TarefaItem novaItem);
+
+        Task<bool> DeletarItem (int? id);
+
+        Task EditarItem (TarefaItem tarefa);
+
+        TarefaItem GetarefaById (int? id);
 
     }
 }

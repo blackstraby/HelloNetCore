@@ -1,0 +1,50 @@
+@model TarefaItem
+@{    
+    ViewData["Title"] = "Deletar Tarefa";
+    }
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width"/>
+  </head>
+  <body>
+      <h4>Editar Tarefa</h4>
+    <hr/>
+
+     <div class="row">
+    <div class="col-md-4">
+    <dl class="dl-horizontal">
+      <dt>
+        @Html.DisplayNameFor(model => model.isCompleta)
+      </dt>
+      <dd>
+        @Html.DisplayFor(model => model.isCompleta)
+      </dd>
+      <dt>
+        @Html.DisplayNameFor(model => model.Nome)
+      </dt>
+      <dd>
+        @Html.DisplayFor(model => model.Nome)
+      </dd>
+      <dt>
+        @Html.DisplayNameFor(model => model.DataConclusao)
+      </dt>
+      <dd>
+        @Html.DisplayFor(model => model.DataConclusao)
+      </dd>
+    </dl>
+
+    <form asp-action="Delete">
+      <input type="hidden" asp-for="Id" /> 
+        <div class="form-group">
+      <input type="submit" value="Deletar Tarefa" class="btn btn-danger" /> 
+      </div>
+      
+    </form>
+    </div>
+   </div>
+      <div>
+         <a asp-action="Index"> Voltar para Lista</a>
+       </div>
+
+  </body>
+</html>

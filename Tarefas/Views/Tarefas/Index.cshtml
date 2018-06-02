@@ -24,15 +24,16 @@
                  </td>
                 <td>@item.Nome</td>
                 <td>@item.DataConclusao</td>
+                <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                 <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                  </td>
             </tr>
         }
     </table>
     <div class="panel-footer add-item-form">
-           <form>
-               <div id="add-item-error" class="text-danger" >    </div>
-               <label for="add-item-title">Incluir Nova Tarefa</label>
-               <input id="add-item-title" />
-               <button type="button" id="add-item-button">Incluir</button>
+           <form asp-controller="Tarefas" asp-action="AdicionarItemTarefa" method="GET">                     
+               <button type="submit" class="btn btn-success">Incluir Nova Tarefa</button>
            </form>
     </div>
 </div>
