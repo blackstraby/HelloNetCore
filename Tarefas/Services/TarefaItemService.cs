@@ -13,11 +13,19 @@ namespace Tarefas.Services {
         public TarefaItemService (ApplicationDbContext contexto) {
             _context = contexto;
         }
-        public async Task<IEnumerable<TarefaItem>> GetItemAsync () {
-            var items = await _context.Tarefas
-                //.Where (t => t.isCompleta == false)
-                .ToArrayAsync ();
-            return items;
+        public async Task<IEnumerable<TarefaItem>> GetItemAsync (bool? criterio) {
+
+            if (criterio != null) {
+                var items = await _context.Tarefas
+                    .Where (t => t.isCompleta == criterio)
+                    .ToArrayAsync ();
+                return items;
+
+            } else {
+                var items = await _context.Tarefas.ToArrayAsync ();
+                return items;
+            }
+
         }
 
         public async Task<bool> AdicionarItem (TarefaItem novaTarefa) {
